@@ -37,8 +37,7 @@ Efforcez-vous de coupler faiblement les objets qui interagissent.
 
 ### Points d'impacts
 
-Le pattern Observateur définit entre des objets une relation de type un-à-plusieurs.
-
+- Le pattern Observateur définit entre des objets une relation de type un-à-plusieurs.
 - Les Sujets, alias Observables, mettent à jour les Observateurs via une interface commune.
 - Les Observateurs sont faiblement couplés, au sens où l’Observable ne sait rien d’eux, en dehors du fait qu’ils implémentent l’interface Observer.
 - Vous pouvez « pousser » ou « tirer » les données de l’Observable (tirer est considéré comme plus « correct »).
@@ -51,3 +50,22 @@ Le pattern Observateur définit entre des objets une relation de type un-à-plus
 
 Note: L'interface Java Observer et la classe Java Observable sont dépréciés.  
 (cf http://cr.openjdk.java.net/~iris/se/11/latestSpec/api/java.base/java/util/Observable.html)
+
+## Chapitre 3
+
+### Principes OO
+
+Les classes doivent être ouvertes à l'extension mais fermées à la modification.
+
+### Points d'impacts
+
+- L’héritage est une forme d’extension, mais ne constitue pas nécessairement le moyen d’obtenir des conceptions plus souples.
+- Nos conceptions doivent permettre d’étendre les comportements sans devoir modifier le code existant.
+- On peut souvent employer la composition et la délégation pour ajouter des comportements au moment de l’exécution.
+- Le pattern Décorateur fournit une solution de rechange au sous-classement pour étendre le comportement.
+- Le pattern Décorateur fait appel à un ensemble de classes « décorateurs » qu’on utilise pour envelopper des composants concrets.
+- Les classes décorateurs reflètent le type des composants qu’elles décorent. (En fait, elles sont du même type que les composants qu’elles décorent, soit par héritage, soit via l’implémentation d’une interface.)
+- Les décorateurs modifient le comportement de leurs composants en ajoutant de nouvelles fonctionnalités avant et/ou après les appels de méthode (ou même à leur place).
+- Vous pouvez envelopper un composant dans un nombre quelconque de décorateurs.
+- Les décorateurs sont généralement transparents pour le client du composant, sauf si le client dépend du type concret du composant.
+- Les décorateurs peuvent entraîner la création de nombreux petits objets et leur abus risque de générer de la complexité.
